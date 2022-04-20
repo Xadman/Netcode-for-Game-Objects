@@ -55,6 +55,7 @@ namespace HelloWorld
                     var player = playerObject.GetComponent<HelloWorldPlayer>();
                     player.Move();
                 }
+
             }
         }
     }

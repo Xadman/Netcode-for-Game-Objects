@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace HelloWorld
 {
-    public class HelloWorldPlayer : NetworkBehaviour
+    public class HelloWorldPlayer : NetworkBehaviour //class inherits from NetworkBehavior
     {
-        public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>();
-
+        public NetworkVariable<Vector3> Position = new NetworkVariable<Vector3>(); // defineing the nework variable to represent player position
         public override void OnNetworkSpawn()
         {
             if (IsOwner)
@@ -29,7 +28,7 @@ namespace HelloWorld
             }
         }
 
-        [ServerRpc]
+        [ServerRpc] //sets the position Network  Variable on the servers ininstance of htis player
         void SubmitPositionRequestServerRpc(ServerRpcParams rpcParams = default)
         {
             Position.Value = GetRandomPositionOnPlane();
